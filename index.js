@@ -17,7 +17,9 @@ app.use(expressSession({
     secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create(),
+    store: MongoStore.create({
+        mongoUrl: 'mongodb+srv://givememeso:1@cluster0.yfmos.mongodb.net/stickynotes-users?retryWrites=true&w=majority',
+    }),
 }));
 app.use(cors({
     origin: 'https://sc-reactnotes.netlify.app',
