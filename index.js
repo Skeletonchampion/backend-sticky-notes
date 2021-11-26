@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(expressSession({
     secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
-    resave: true,
+    resave: false,
     saveUninitialized: true,
 }));
 app.use(cors({
