@@ -22,7 +22,7 @@ app.use(expressSession({
     }),
 }));
 app.use(cors({
-    origin: 'https://sc-reactnotes.netlify.app',
+    origin: '*',
     credentials: true,
     })
 );
