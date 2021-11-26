@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(expressSession({
     secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
 }));
 app.use(cors({
     origin: 'https://sc-reactnotes.netlify.app',
