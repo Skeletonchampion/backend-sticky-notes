@@ -23,7 +23,7 @@ app.use(cors({
     })
 );
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://givememeso2:1@cluster0.yfmos.mongodb.net/stickynotes-users", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get("/user", (req, res) => {
     res.json({userId: req.session.userId, username: req.session.username});
