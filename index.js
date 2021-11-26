@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
     resave: true,
     saveUninitialized: true,
 }));
