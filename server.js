@@ -17,7 +17,7 @@ app.use(expressSession({
     saveUninitialized: true,
 }));
 app.use(cors({
-    origin: "https://sc-reactnotes.netlify.app",
+    origin: 'https://sc-reactnotes.netlify.app',
     credentials: true,
     })
 );
