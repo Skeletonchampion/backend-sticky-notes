@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
+const MongoStore = require('connect-mongo');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const cors = require("cors");
@@ -16,6 +17,7 @@ app.use(expressSession({
     secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create(options),
 }));
 app.use(cors({
     origin: 'https://sc-reactnotes.netlify.app',

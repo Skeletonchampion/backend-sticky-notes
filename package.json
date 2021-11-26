@@ -10,7 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {"node": "14.18.1"},
+  "engines": {
+    "node": "14.18.1"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
