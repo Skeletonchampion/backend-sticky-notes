@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
-require("dotenv").config();
-console.log(process.env.DATABASE_URL);
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 
