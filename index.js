@@ -24,11 +24,18 @@ app.use(expressSession({
         mongoUrl: process.env.DATABASE,
     }),
 }));
-app.use(cors({
+
+const corsConfig = {
     origin: true,
     credentials: true,
-    })
-);
+};
+// app.use(cors({
+//     origin: true,
+//     credentials: true,
+//     })
+// );
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig));
 
 mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
