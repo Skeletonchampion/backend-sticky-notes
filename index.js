@@ -18,9 +18,9 @@ app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    // store: MongoStore.create({
-    //     mongoUrl: "mongodb://givememeso2:1@cluster0.yfmos.mongodb.net/stickynotes-users",
-    // }),
+    store: MongoStore.create({
+        mongoUrl: process.env.DATABASE,
+    }),
 }));
 app.use(cors({
     origin: true,
