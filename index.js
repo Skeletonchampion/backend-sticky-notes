@@ -18,9 +18,9 @@ app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.DATABASE,
-    }),
+    // store: MongoStore.create({
+    //     mongoUrl: process.env.DATABASE,
+    // }),
 }));
 app.use(cors({
     origin: true,
