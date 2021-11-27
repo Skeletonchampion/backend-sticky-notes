@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(expressSession({
-    secret: process.env.SESSION_SECRET || "hirwehiweptjopwejopwejopt",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
@@ -29,10 +29,6 @@ app.use(cors({
 );
 
 mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
-
-app.get("/", (req, res) => {
-    res.send("Hello");
-});
 
 app.get("/user", (req, res) => {
     res.json({userId: req.session.userId, username: req.session.username});
