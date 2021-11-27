@@ -19,7 +19,7 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.DATABASE,
+        mongoUrl: "mongodb://givememeso2:1@cluster0.yfmos.mongodb.net/stickynotes-users",
     }),
 }));
 app.use(cors({
