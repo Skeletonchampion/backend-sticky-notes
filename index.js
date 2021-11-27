@@ -14,25 +14,21 @@ const Note = require("./models/Note.js");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.set('trust proxy', 1);
 app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    // store: MongoStore.create({
-    //     mongoUrl: process.env.DATABASE,
-    // }),
+    cookie: { secure: true },
+    store: MongoStore.create({
+        mongoUrl: process.env.DATABASE,
+    }),
 }));
 app.use(cors({
     origin: true,
     credentials: true,
     })
 );
-
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
 
 mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
