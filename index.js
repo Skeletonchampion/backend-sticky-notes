@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const express = require("express");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
-const MongoStore = require('connect-mongo').default;
+const MongoStore = require('connect-mongo');
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 
