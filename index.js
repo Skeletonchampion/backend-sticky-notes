@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(expressSession({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     // store: MongoStore.create({
     //     mongoUrl: process.env.DATABASE,
     // }),
