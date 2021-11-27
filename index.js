@@ -1,9 +1,10 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const expressSession = require("express-session");
 const MongoStore = require('connect-mongo');
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 
@@ -18,16 +19,16 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://givememeso:1@cluster0.yfmos.mongodb.net/stickynotes-users?retryWrites=true&w=majority',
+        mongoUrl: process.env.DATABASE,
     }),
 }));
 app.use(cors({
-    origin: 'https://sc-reactnotes.netlify.app',
+    origin: true,
     credentials: true,
     })
 );
 
-mongoose.connect("mongodb+srv://givememeso:1@cluster0.yfmos.mongodb.net/stickynotes-users?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get("/", (req, res) => {
     res.send("Hello");
